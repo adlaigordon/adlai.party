@@ -2,7 +2,7 @@ var APP_DATA = {
   "scenes": [
     {
       "id": "0-adlairoom",
-      "name": "adlairoom",
+      "name": "",
       "levels": [
         {
           "tileSize": 256,

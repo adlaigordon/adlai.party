@@ -148,6 +148,9 @@
   // Set handler for scene switch.
   scenes.forEach(function(scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
+    if (!el) {
+      return;
+    }
     el.addEventListener('click', function() {
       switchScene(scene);
       // On mobile, hide scene list after selecting a scene.
@@ -192,10 +195,16 @@
   }
 
   function updateSceneName(scene) {
+    if (!sceneNameElement) {
+      return;
+    }
     sceneNameElement.innerHTML = sanitize(scene.data.name);
   }
 
   function updateSceneList(scene) {
+    if (!sceneElements || sceneElements.length === 0) {
+      return;
+    }
     for (var i = 0; i < sceneElements.length; i++) {
       var el = sceneElements[i];
       if (el.getAttribute('data-id') === scene.data.id) {
